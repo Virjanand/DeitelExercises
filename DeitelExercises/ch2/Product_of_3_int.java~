@@ -1,4 +1,0 @@
-// Product_of_3_integers.java
-// Prompts user for 3 integers and gives the product of these three integers
-import java.util.Scanner;
-
