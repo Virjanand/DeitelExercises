@@ -1,0 +1,10 @@
+// OddOrEven.java
+// Answer to exercise 2.25 from Deitel How to program Java
+
+public class OddOrEven
+{
+   public static void main( String[] args )
+   {
+
+   }
+}

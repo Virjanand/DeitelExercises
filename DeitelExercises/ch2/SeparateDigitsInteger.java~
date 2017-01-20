@@ -1,0 +1,24 @@
+// SeparateDigitsInteger.java
+// Answer to exercise 2.30 from Deitel How to program Java
+import java.util.Scanner;
+
+public class SeparateDigitsInteger
+{
+   public static void main( String[] args )
+   {
+      System.out.print( "This program separates the digits of an " );
+      System.out.println( "integer with 5 digits into digits with spaces." );
+
+      Scanner input = new Scanner( System.in );
+      System.out.print( "Type an integer with 5 digits: " );
+      int number = input.nextInt();
+
+      int ones = number % 10;
+      int tens = number % 100 - ones;
+      int hundreds = number % 1000 - tens - ones;
+      int thousands = number % 10000 - hundreds - tens - ones;
+      int tenthousands = number - thousands - hundreds - tens - ones;
+      System.out.printf( "%d   %d   %d   %d   %d",
+		      tenthousands, thousands, hundreds, tens, ones );
+   }
+}
