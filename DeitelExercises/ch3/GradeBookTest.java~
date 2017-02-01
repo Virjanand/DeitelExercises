@@ -1,0 +1,22 @@
+// GradeBookTest.java
+// Creating a GradeBook object and calling its displayMessage method.
+import java.util.Scanner;
+
+public class GradeBookTest
+{
+   // main method begins program execution
+   public static void main( String[] args )
+   {
+      // create GradeBook object
+      GradeBook gradeBook1 = new GradeBook(
+         "CS101 Introduction to Java Programming" );
+      GradeBook gradeBook2 = new GradeBook(
+         "CS102 Data Structures in Java" );
+
+      // display initial value of courseName for each GradeBook
+      System.out.printf( "gradBook1 course name is: %s\n",
+         gradeBook1.getCourseName() );
+      System.out.printf( "gradBook2 course name is: %s\n",
+         gradeBook2.getCourseName() );
+   } // end main
+} // end class GradeBookTest

@@ -1,0 +1,108 @@
+// DrawPanel3.java
+// Using drawLine to connect the corners of a panel.
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
+public class DrawPanel3 extends JPanel
+{
+   private int width;
+   private int height;
+   private int stepHeight;
+   private int stepWidth;
+
+   // draws an X from the corners of the panel
+   public void paintComponent( Graphics g )
+   {
+      // call paintComponent to ensure the panel displays correctly
+      super.paintComponent( g );
+
+      width = getWidth(); // total width
+      height = getHeight(); // total height
+      stepHeight = height / 15;
+      stepWidth = width / 15;
+
+      // Lines from top left corner
+      int counter = 1;
+      int xstep = 0;
+      int ystep = height;
+      while ( counter <= 15 )
+      {
+         g.drawLine( 0, 0, xstep, ystep );
+
+         xstep += stepWidth;
+         ystep -= stepHeight;
+         counter++;
+      }
+
+      // Lines from top right corner
+      counter = 1;
+      xstep = width;
+      ystep = height;
+      while ( counter <=15 )
+      {
+         g.drawLine( width, 0, xstep, ystep );
+
+         xstep -= stepWidth;
+         ystep -= stepHeight;
+         counter++;
+      }
+
+      // Lines from bottom right corner
+      counter = 1;
+      xstep = width;
+      ystep = 0;
+      while ( counter <=15 )
+      {
+         g.drawLine( width, height, xstep, ystep );
+
+         xstep -= stepWidth;
+         ystep += stepHeight;
+         counter++;
+      }
+
+      // Lines from bottom left corner
+      counter = 1;
+      xstep = 0;
+      ystep = 0;
+      while ( counter <=15 )
+      {
+         g.drawLine( 0, height, xstep, ystep );
+
+         xstep += stepWidth;
+         ystep += stepHeight;
+         counter++;
+      }
+   } // end method paintcomponent
+
+   public void drawLinesFromCorner( Graphics g, int xCorner, int yCorner )
+   {
+      // top left corner (0, 0): xstep = 0, ystep = height (-)
+      // top right corner (width, 0): xstep = width (-), ystep = height (-)
+      // bottom right corner (width, height): xstep = width (-), ystep = 0
+      // bottom left corner (0, height): xstep = 0, ystep = 0
+      int counter = 1;
+      int xstep = 0;
+      int ystep = 0;
+      int stepWidthLocal = stepWidth;
+      int stepHeightLocal = stepHeight;
+
+      if ( xCorner == width )
+      {
+         xstep = width;
+         stepWidthLocal *= -1; 
+      }
+      if (yCorner == height )
+      {
+         ystep = height;
+         stepHeightLocal *= -1;
+      }
+      while ( counter <=15 )
+      {
+         g.drawLine( xCorner, yCorner, xstep, ystep );
+
+         xstep += stepWidthLocal;
+         ystep += stepHeightLocal;
+         counter++;
+      }
+  }
+} // end class DrawPanel

@@ -1,0 +1,74 @@
+// HealthProfileTest.java
+// Answer to exercise 3.17 from Deitel How to program Java
+import java.util.Scanner;
+
+public class HealthProfileTest
+{
+   public static void main( String[] args )
+   {
+      Scanner input = new Scanner( System.in );
+      
+      System.out.print( "First name: " );
+      String firstName = input.nextLine();
+      
+      System.out.print( "Last name: " );
+      String lastName = input.nextLine();
+
+      System.out.print( "Gender: " );
+      String gender = input.nextLine();
+
+      System.out.print( "Month of birthday: " );
+      int birthdayMonth = input.nextInt();
+
+      System.out.print( "Day of birthday: " );
+      int birthdayDay = input.nextInt();
+
+      System.out.print( "Year of birthday: " );
+      int birthdayYear = input.nextInt();
+      
+      System.out.print( "Weight in kg: " );
+      double weight = input.nextDouble();
+
+      System.out.print( "Height in m: " );
+      double height = input.nextDouble();
+ 
+      HealthProfile myHealthProfile = new HealthProfile( firstName, lastName,
+            gender, birthdayMonth, birthdayDay, birthdayYear,
+            weight, height );
+
+      System.out.println();
+
+      System.out.printf( "First name: %s.\n", 
+            myHealthProfile.getFirstName() );
+      System.out.printf( "Last name: %s.\n",
+            myHealthProfile.getLastName() );
+
+      System.out.printf( "Gender: %s.\n",
+            myHealthProfile.getGender() );
+
+      System.out.printf( "Date of birth: %d/%d/%d.\n",
+            myHealthProfile.getBirthdayMonth(),
+            myHealthProfile.getBirthdayDay(),
+            myHealthProfile.getBirthdayYear() );
+     
+      System.out.printf( "Height: %.2f.\n",
+            myHealthProfile.getHeight() );
+
+      System.out.printf( "Weight: %.2f.\n",
+            myHealthProfile.getWeight() );
+ 
+      System.out.printf( "Age: %d.\n",
+            myHealthProfile.calculateAge() );
+
+      System.out.printf( "Maximum heart rate: %d.\n",
+            myHealthProfile.calculateMaxHeartRate() );
+
+      System.out.printf( "Target-heart-rate: %s.\n",
+            myHealthProfile.calculateTargetHeartRateRange() );
+
+      System.out.printf( "BMI: %.1f.\n",
+            myHealthProfile.calculateBMI() );
+
+      myHealthProfile.printBMITable();
+   }
+}
