@@ -1,9 +1,9 @@
-// DrawPanel3.java
+// DrawPanel5.java
 // Using drawLine to connect the corners of a panel.
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class DrawPanel3 extends JPanel
+public class DrawPanel5 extends JPanel
 {
    private int width;
    private int height;
@@ -27,39 +27,44 @@ public class DrawPanel3 extends JPanel
       drawLinesFromCorner( g, width, 0);
       // Lines from bottom right corner
       drawLinesFromCorner( g, width, height );
-
       // Lines from bottom left corner
       drawLinesFromCorner( g, 0, height );
   } // end method paintcomponent
 
    public void drawLinesFromCorner( Graphics g, int xCorner, int yCorner )
    {
-      // top left corner (0, 0): xstep = 0, ystep = height (-)
-      // top right corner (width, 0): xstep = width (-), ystep = height (-)
-      // bottom right corner (width, height): xstep = width (-), ystep = 0
-      // bottom left corner (0, height): xstep = 0, ystep = 0
+      // top left corner (0, 0): xstepStart = 0, ystepStart = 0(+)
+      //    xstepEnd = stepWidth(+), ystepEnd = height
+      // top right corner (width, 0): xstepStart = width, ystepStart = 0(+)
+      //    xstepEnd = width - stepWidth(-), ystepEnd = height
+      // bottom right corner (width, height): xstepStart = width,
+      //    ystepStart = height(-), xstepEnd = width - stepWidth(-), 
+      //    ystepEnd = 0
+      // bottom left corner (0, height): xstepStart = 0, ystepStart = height(-)
+      //    xstepEnd = stepWidth(+), ystepEnd = 0
       int counter = 1;
-      int xstep = 0;
-      int ystep = 0;
+      int yStart = yCorner;
       int stepWidthLocal = stepWidth;
       int stepHeightLocal = stepHeight;
+      int xEnd = stepWidth;
+      int yEnd = height;
 
       if ( xCorner == width )
       {
-         xstep = width;
+         xEnd = width - stepWidth;
          stepWidthLocal *= -1; 
       }
-      if (yCorner == 0 )
+      if (yCorner == height )
       {
-         ystep = height;
+         yEnd = 0;
          stepHeightLocal *= -1;
       }
       while ( counter <=15 )
       {
-         g.drawLine( xCorner, yCorner, xstep, ystep );
+         g.drawLine( xCorner, yStart, xEnd, yEnd );
 
-         xstep += stepWidthLocal;
-         ystep += stepHeightLocal;
+         xEnd += stepWidthLocal;
+         yStart += stepHeightLocal;
          counter++;
       }
   }

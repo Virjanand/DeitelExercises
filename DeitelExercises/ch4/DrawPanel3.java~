@@ -22,6 +22,8 @@ public class DrawPanel3 extends JPanel
       stepWidth = width / 15;
 
       // Lines from top left corner
+      drawLinesFromCorner( g, 0, 0 );
+      /*
       int counter = 1;
       int xstep = 0;
       int ystep = height;
@@ -72,6 +74,7 @@ public class DrawPanel3 extends JPanel
          ystep += stepHeight;
          counter++;
       }
+      */
    } // end method paintcomponent
 
    public void drawLinesFromCorner( Graphics g, int xCorner, int yCorner )
@@ -81,15 +84,27 @@ public class DrawPanel3 extends JPanel
       // bottom right corner (width, height): xstep = width (-), ystep = 0
       // bottom left corner (0, height): xstep = 0, ystep = 0
       int counter = 1;
-
       int xstep = 0;
       int ystep = 0;
+      int stepWidthLocal = stepWidth;
+      int stepHeightLocal = stepHeight;
+
+      if ( xCorner == width )
+      {
+         xstep = width;
+         stepWidthLocal *= -1; 
+      }
+      if (yCorner == 0 )
+      {
+         ystep = height;
+         stepHeightLocal *= -1;
+      }
       while ( counter <=15 )
       {
-         g.drawLine( 0, height, xstep, ystep );
+         g.drawLine( xCorner, yCorner, xstep, ystep );
 
-         xstep += stepWidth;
-         ystep += stepHeight;
+         xstep += stepWidthLocal;
+         ystep += stepHeightLocal;
          counter++;
       }
   }

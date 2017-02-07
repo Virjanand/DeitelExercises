@@ -1,0 +1,38 @@
+// GasMileage.java
+// Answer to exercise 4.17 from Deitel How to program Java
+import java.util.Scanner;
+
+public class GasMileage
+{
+   public static void main( String[] args )
+   {
+      int totalMilesDriven = 0;
+      int totalGallonsUsed = 0;
+      
+      Scanner input = new Scanner( System.in );
+      
+      System.out.print( "Enter miles driven (-1 to quit): " );
+      int milesTrip = input.nextInt();
+      System.out.print( "Enter gallons used (-1 to quit); " );
+      int gallonsTrip = input.nextInt();
+
+      while ( milesTrip != -1 || gallonsTrip != -1 )
+      {
+         totalMilesDriven += milesTrip;
+         totalGallonsUsed += gallonsTrip;
+
+         System.out.printf( "Miles per gallon: %.2f\n",
+              (double) milesTrip / gallonsTrip );
+         System.out.printf( "Combined miles per gallon for all trips: %.2f\n",
+               (double) totalMilesDriven / totalGallonsUsed );
+
+         System.out.println();
+
+         System.out.print( "Enter miles driven (-1 to quit): " );
+         milesTrip = input.nextInt();
+         System.out.print( "Enter gallons used (-1 to quit); " );
+         gallonsTrip = input.nextInt();
+     }
+        
+   } // end method main
+} // end class GasMileage
