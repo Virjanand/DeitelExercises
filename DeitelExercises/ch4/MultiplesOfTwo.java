@@ -1,0 +1,25 @@
+// MultiplesOfTwo.java
+// Answer to exercise 4.33 from Deitel How top program Java
+// Display multples of 2 infinitely
+
+public class MultiplesOfTwo
+{
+   public static void main( String[] args )
+   {
+      // Initialize variables
+      // Initialize counter to 1
+      int counter = 1;
+      // Initialize multiplier to 2
+      int multiplier = 2;
+
+      // Display multiples of 2
+      // While true
+      while ( true )
+      {
+         // Multiply counter by multiplier
+         counter *= multiplier;
+         // Print counter
+         System.out.printf( "%d\n", counter );
+      }
+   } // end main
+} // end class MultiplesOfTwo
