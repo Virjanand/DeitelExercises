@@ -1,0 +1,18 @@
+// Fig. 5.2: forCounter.java
+// Counter-controlled repetition with the for repetition statement.
+
+public class ForCounter
+{
+   public static void main( String[] args )
+   {
+      // for statement header includes initialization,
+      // loop-continuation condition and increment
+      while ( counter <= 10 ) // loop-continuation condition
+      {
+         System.out.printf( "%d  ", counter );
+         ++counter; // increment control variable by 1
+      } // end while
+
+      System.out.println(); // output a newline
+   } // end main
+} // end class ForCounter

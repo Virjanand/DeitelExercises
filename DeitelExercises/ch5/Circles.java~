@@ -1,0 +1,29 @@
+// Circles.java
+// Answer to exercise 5.1 from Deitel How to program Java
+// Draw 12 concentric circles in the center of a JPanel
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
+public class Circles extends JPanel
+{
+   public void paintComponent( Graphics g )
+   {
+      super.paintComponent( g );
+
+      int width = getWidth();
+      int height = getHeight();
+
+      int xCenter = width / 2;
+      int yCenter = height / 2;
+      int radius = 10;
+      int counter = 1;
+
+      while ( counter <= 12 )
+      {
+         g.drawOval( xCenter - radius, yCenter - radius, 
+            2 * radius, 2 * radius );
+         radius += 10;
+         ++counter;
+      }
+   } // end method paintcomponent
+} // end class Circles
