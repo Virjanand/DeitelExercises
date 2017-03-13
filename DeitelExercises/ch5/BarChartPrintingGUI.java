@@ -1,0 +1,47 @@
+// BarChartPrintingGUI.java
+// Answer to exercise 5.16 from Deitel How to program java
+import java.awt.Graphics;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class BarChartPrintingGUI extends JPanel
+{
+   // Initialize variables
+   private int number1;
+   private int number2;
+   private int number3;
+   private int number4;
+   private int number5;
+
+   // Prompt for 5 numbers
+   private int inputNumber()
+   {
+      String input = JOptionPane.showInputDialog( "Enter a number" +
+            " between 1 and 30: " );
+      return Integer.parseInt( input );
+
+   } // end method displayPrompt
+   
+   // Input 5 numbers
+   public void input5Integers()
+   {
+      number1 = inputNumber();
+      number2 = inputNumber();
+      number3 = inputNumber();
+      number4 = inputNumber();
+      number5 = inputNumber();
+
+   } // end method input5Integers
+
+   public void paintComponent( Graphics g )
+   {
+      super.paintComponent( g );
+
+      g.drawRect( 0, 0, number1 * 10, 10 );
+      g.drawRect( 0, 10, number2 * 10, 10 );
+      g.drawRect( 0, 20, number3 * 10, 10 );
+      g.drawRect( 0, 30, number4 * 10, 10 );
+      g.drawRect( 0, 40, number5 * 10, 10 );
+
+   } // end method paintComponent
+} // end class BarChartPrintingGUI

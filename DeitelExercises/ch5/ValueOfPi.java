@@ -1,0 +1,33 @@
+// ValueOfPi.java
+// Answer to exercise 5.20 from Deitel How to program Java
+// Approximate pi with series with 200,000 terms
+
+public class ValueOfPi
+{
+   public static void main( String[] args )
+   {
+      double pi = 4;
+      int quotient = 3;
+      double term;
+
+      for ( int i = 1; i <= 200000; i++ )
+      {
+         term = (double) 4 / quotient;
+         if ( i % 2 == 1 )
+            pi -= term;
+         else
+            pi += term;
+
+         if ( ( pi > 3.141585 ) && ( pi < 3.141595 ) )
+         {
+            System.out.printf( "%d\n", i );
+            break;
+         }
+   
+         System.out.printf( "%f\n", pi );
+         quotient += 2;
+      } // end for
+
+      System.out.printf( "%f", pi );
+   } // end main
+} // end class ValueOfPi
