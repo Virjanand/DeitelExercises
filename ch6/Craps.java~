@@ -23,7 +23,7 @@ public class Craps
       int myPoint = 0; // point if no win or loss on first roll
       Status gameStatus; // can contain CONTINUE, WON or LOST
 
-      int sumOfDice = rollDice(); // first roll of the dice
+      int sumOfDice; // first roll of the dice
 
       // determine game status and point based on first roll
       switch ( sumOfDice )
