@@ -1,0 +1,19 @@
+// Exercise 6.6: VolumeSphere.java
+// Prompt user for radius and display volume of the sphere
+import java.util.Scanner;
+
+public class VolumeSphere
+{
+   public static void main( String[] args )
+   {
+      // get radius
+      // display prompt for radius
+      System.out.print( "Enter radius: " ); 
+      // initialize scanner
+      Scanner input = new Scanner( System.in );
+      // input radius
+      double radius = input.nextDouble();
+      // calculate volume of sphere
+      // display volume of sphere
+   } // end main
+} // end class VolumeSphere

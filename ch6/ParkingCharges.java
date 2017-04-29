@@ -1,0 +1,80 @@
+// Exercise 6.8: ParkingCharges.java
+// Calculate parking charges per customer and running total
+import java.util.Scanner;
+
+public class ParkingCharges
+{
+   double runningTotalFee;
+   Scanner input = new Scanner( System.in );
+
+   // prompt for hours parked for customer
+   public void displayPromptHoursParked()
+   {
+      System.out.print( "Enter hours parked: ");
+   } // end method promptHoursParked
+
+   // retrieve hours parked for customer
+   public int inputHoursParked()
+   {
+      int hoursParked = input.nextInt();
+
+      return hoursParked;
+   } // end method inputHoursParked
+
+   // calculate fee
+   public double calculateFee( int hours )
+   {
+      double minFee = 2.00;
+      double hourlyFee = 0.50;
+      double maxFee = 10.00;
+      int initialHours = 3;
+
+      double calculatedFee = minFee;
+      if ( hours > initialHours )
+         calculatedFee += hourlyFee * ( hours - initialHours );
+      if ( calculatedFee > 10.00 )
+         return 10.00;
+      else
+         return calculatedFee;
+   } // end method calculateFee
+
+   // display fee for customer
+   public void displayFee(int hours, double fee )
+   {
+      System.out.printf( "Fee for current customer for %d hours " +
+            "is $%.2f.\n", hours, fee );
+   } // end method displayFee
+
+   // calculate running total
+   public double updateRunningTotal( double fee )
+   {
+      runningTotalFee += fee;
+      return runningTotalFee;
+   } // end method updateRunningTotal
+
+   // display running total
+   public void displayRunningTotal()
+   {
+      System.out.printf( "\n\nThe running total is: $%.2f.\n",
+           runningTotalFee );
+   } // end method displayRunningTotal
+
+   // input all customers for a day
+   public double inputAllCustomers()
+   {
+      displayPromptHoursParked();
+
+      while ( input.hasNext() )
+      {
+         int hours = inputHoursParked();
+         double fee = calculateFee( hours );
+         displayFee( hours, fee );
+         updateRunningTotal( fee );
+
+         displayPromptHoursParked();
+      } // end while 
+
+      displayRunningTotal();
+      return runningTotalFee;
+   } // end method inputAllCustomers
+} // end class ParkingCharges

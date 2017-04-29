@@ -1,0 +1,23 @@
+// Exercise 6.8: ParkingChargesTest.java
+// Test the class ParkingCharges
+
+public class ParkingChargesTest
+{
+   public static void main( String[] args )
+   {
+      ParkingCharges parkingGarage = new ParkingCharges();
+
+      parkingGarage.displayPromptHoursParked();
+
+      int hours = parkingGarage.inputHoursParked();
+
+      double fee = parkingGarage.calculateFee( hours );
+
+      parkingGarage.displayFee( hours, fee );
+
+      parkingGarage.updateRunningTotal( fee );
+
+      parkingGarage.displayRunningTotal();
+      
+   } // end main
+} // end class ParkingChargesTest

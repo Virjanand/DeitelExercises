@@ -1,0 +1,15 @@
+// Exercise 6.21: SeparatingDigitsTest.java
+// Test the SeparatingDigits class
+
+public class SeparatingDigitsTest
+{
+   public static void main( String[] args )
+   {
+      int quotient = SeparatingDigits.calculateQuotient( 4, 3 );
+      System.out.println( "The quotient is: " + quotient );
+      int remainder = SeparatingDigits.calculateRemainder( 4, 3 );
+      System.out.println( "The remainder is: " + remainder );
+
+      SeparatingDigits.displayDigits( 4562 );
+   } // end main
+} // end class SeparatingDigitsTest
