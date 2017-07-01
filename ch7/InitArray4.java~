@@ -1,0 +1,14 @@
+// Fig. 7.17: InitArray4.java
+// Initializing two-dimensional arrays.
+
+public class InitArray4
+{
+   // create and output two-dimensional arrays
+   public static void main( String[] args )
+   {
+      int[][] array1 = { { 1, 2, 3 }, { 4, 5, 6 } };
+      int[][] array2 = { { 1, 2}, { 3 }, { 4, 5, 6 } };
+
+      System.out.println( "Values in array1 by row are" );
+   } // end main
+} // end class InitArray4
