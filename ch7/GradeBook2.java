@@ -4,10 +4,10 @@
 public class GradeBook2
 {
    private String courseName; // course name for this GradeBook
-   private int[][] grades; // array of student grades
+   private int[][] grades; // two-dimensional array of student grades
 
    // two-argument constructor initiallizes courseName and grades array
-   public GradeBook2( String name, int[] gradesArray ) 
+   public GradeBook2( String name, int[][] gradesArray ) 
    {
       courseName = name; // initializes courseName
       grades = gradesArray; // store grades
@@ -40,28 +40,31 @@ public class GradeBook2
       // output grades array
       outputGrades();
 
-      // call method getAverage to calculate the average grade
-      System.out.printf( "\nClass average is %.2f\n", getAverage() );
-
       // call methods getMinimum and getMaximum
-      System.out.printf( "Lowest grade is %d\nHighest grade is %d\n\n",
-         getMinimum(), getMaximum() );
+      System.out.printf( "\n%s %d\n%s %d\n\n",
+         "Lowest grade is in the grade book is", getMininum(),
+         "Highest grade is in the grade book is", getMaximum() );
 
-      // call outputBarChart to print grade distribution chart
+      // output grade distribution chart of all grades on all tests
       outputBarChart();
    } // end method processGrades
 
    // find minimum grade
    public int getMinimum()
    {
-      int lowGrade = grades[ 0 ]; // assume grades[ 0 ] is smallest
+      // assume first element of grades array is smallest
+      int lowGrade = grades[ 0 ][ 0 ];
 
-      // loop through grades array
-      for ( int grade : grades )
+      // loop through rows of grades array
+      for ( int[] studentGrades : grades )
       {
-         // if grade lower than lowGrade, assign it to lowGrade
-         if ( grade < lowGrade )
-            lowGrade = grade; // new lowest grade
+         // loop through columns of current row
+         for ( int grade : studentGrades )
+         {
+            // if grade lower than lowGrade, assign it to lowGrade
+            if ( grade < lowGrade )
+               lowGrade = grade; // new lowest grade
+         } // end inner for
       } // end for
 
       return lowGrade; // return lowest grade

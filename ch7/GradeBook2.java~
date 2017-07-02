@@ -1,11 +1,10 @@
 // Fig. 7.18: GradeBook2.java
-// GradeBook class using an array to store test grades.
-import java.util.Scanner; // program uses class Scanner
+// GradeBook class using a two-dimensional array to store grades.
 
 public class GradeBook2
 {
    private String courseName; // course name for this GradeBook
-   private int[] grades; // array of student grades
+   private int[][] grades; // array of student grades
 
    // two-argument constructor initiallizes courseName and grades array
    public GradeBook2( String name, int[] gradesArray ) 
